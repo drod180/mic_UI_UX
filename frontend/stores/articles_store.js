@@ -4,16 +4,45 @@ var ArticlesConstants = require('../constants/articles_constants');
 
 var _articles = [];
 var intialArticleCount = 0;
+var _filter = localStorage.filter || "";
 
 function _resetArticles(articles) {
   _articles = articles;
+	_filterArticles(_filter);
 	intialArticleCount = _articles.length;
 }
 
 function _addArticles(articles) {
 	if (_articles.length <= intialArticleCount) {
 		_articles = _articles.concat(articles);
+		_filterArticles(_filter);
 	}
+}
+
+function _filterArticles(filter) {
+	_filter = localStorage.filter = filter;
+	_articles.sort(function (a, b) {
+		switch (filter) {
+			case "words":
+				aValue = a.words;
+				bValue = b.words;
+				break;
+			case "time":
+				aValue = (new Date(a.publish_at)).valueOf();
+				bValue = (new Date(b.publish_at)).valueOf();
+				break;
+			default:
+				aValue = bValue = 0;
+		}
+
+		if (aValue > bValue) {
+    	return 1;
+	  }
+	  if (aValue < bValue) {
+	    return -1;
+	  }
+	  return 0;
+	});
 }
 
 var ArticlesStore = new Store(AppDispatcher);
@@ -26,6 +55,10 @@ ArticlesStore.__onDispatch = function (payload) {
         break;
 			case ArticlesConstants.MORE_ARTICLES_RECEIVED:
 				_addArticles(payload.articles);
+				ArticlesStore.__emitChange();
+				break;
+			case ArticlesConstants.FILTER_ARTICLES:
+				_filterArticles(payload.filter);
 				ArticlesStore.__emitChange();
 				break;
       default:

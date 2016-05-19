@@ -14,6 +14,13 @@ ArticlesActions = {
       actionType: ArticlesConstants.MORE_ARTICLES_RECEIVED,
       articles: articles
     });
+	},
+
+	filterArticles: function (filter) {
+		AppDispatcher.dispatch({
+      actionType: ArticlesConstants.FILTER_ARTICLES,
+      filter: filter
+    });
 	}
 };
 
