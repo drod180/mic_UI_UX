@@ -8,7 +8,7 @@ var MoreArticlesButton = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<a onClick={this._addRows}>More Articles</a>
+				<a className="more-button" onClick={this._addRows}>More Articles</a>
 			</div>
 		);
 	}

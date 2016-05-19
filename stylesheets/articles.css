@@ -92,6 +92,7 @@ table {
 	height: 10px;
 	padding: 25px 8.531px;
 	border-left: 1px solid #932C3B;
+	cursor: pointer;
 }
 
 .right-header-time {
@@ -99,18 +100,24 @@ table {
 	height: 10px;
 	padding: 25px 24.828px;
 	border-left: 1px solid #932C3B;
+	cursor: pointer;
 }
 
 .right-header-words:hover {
 	background: linear-gradient(#E0435A, #AC3546);
-	cursor: pointer;
+}
+
+.right-header-words:active {
+	background: linear-gradient(#AC3546, #42131A);
 }
 
 .right-header-time:hover {
 	background: linear-gradient(#E0435A, #AC3546);
-	cursor: pointer;
 }
 
+.right-header-time:active {
+	background: linear-gradient(#AC3546, #42131A);
+}
 /* Article Body */
 
 .articles-list {
@@ -155,6 +162,7 @@ table {
 
 .article-author-container {
 	display: flex;
+	flex: none;
 	align-items: center;
 	border-left: 1px solid #EAEAEA;
 	margin-left: auto;
@@ -162,7 +170,6 @@ table {
 }
 
 .article-author {
-	flex: none;
 	margin-left: 10px;
 	max-width: 80px;
 	font-size: 12px;
@@ -171,6 +178,7 @@ table {
 
 .article-words-container {
 	display: flex;
+	flex: none;
 	align-items: center;
 	justify-content: center;
 	border-left: 1px solid #EAEAEA;
@@ -178,11 +186,12 @@ table {
 }
 
 .article-words {
-	flex: none;
+
 	max-width: 50px;
 }
 
 .article-submitted-container {
+	flex: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -191,8 +200,31 @@ table {
 }
 
 .article-submitted {
-	flex: none;
+
 	max-width: 100px;
 }
 
 /* Footer */
+
+.more-button {
+	display: block;
+	margin: 20px;
+	padding: 21px 20px;
+	width: 110px;
+
+	background: linear-gradient(#AC3546, #862836);
+	border: 2px solid #932C3B;
+	border-radius: 4px;
+	font-size: 18px;
+	font-family: sans-serif;
+	color: white;
+	cursor: pointer;
+}
+
+.more-button:hover {
+	background: linear-gradient(#E0435A, #AC3546);
+}
+
+.more-button:active {
+	background: linear-gradient(#AC3546, #42131A);
+}
