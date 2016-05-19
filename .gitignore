@@ -1,0 +1,5 @@
+# Dependency directories
+node_modules
+
+bundle.js
+bundle.js.map

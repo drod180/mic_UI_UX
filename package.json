@@ -1,0 +1,26 @@
+{
+  "name": "Dan_Rodriguez_UI_UX_Dev_Test",
+  "version": "1.0.0",
+  "description": "## General Guidelines This is a Frontend developer competency test designed to gauge skill, attention to detail and affinity for standards based development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drod180/mic_UI_UX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drod180/mic_UI_UX/issues"
+  },
+  "homepage": "https://github.com/drod180/mic_UI_UX#readme",
+  "dependencies": {
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.0",
+    "webpack": "^1.13.0"
+  }
+}
