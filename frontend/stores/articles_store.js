@@ -13,10 +13,8 @@ function _resetArticles(articles) {
 }
 
 function _addArticles(articles) {
-	if (_articles.length <= intialArticleCount) {
-		_articles = _articles.concat(articles);
-		_filterArticles(_filter);
-	}
+	_articles = _articles.concat(articles);
+	_filterArticles(_filter);
 }
 
 function _filterArticles(filter) {
@@ -54,8 +52,10 @@ ArticlesStore.__onDispatch = function (payload) {
         ArticlesStore.__emitChange();
         break;
 			case ArticlesConstants.MORE_ARTICLES_RECEIVED:
-				_addArticles(payload.articles);
-				ArticlesStore.__emitChange();
+			  if (_articles.length <= intialArticleCount) {
+					_addArticles(payload.articles);
+					ArticlesStore.__emitChange();
+				}
 				break;
 			case ArticlesConstants.FILTER_ARTICLES:
 				_filterArticles(payload.filter);
@@ -71,6 +71,7 @@ ArticlesStore.all = function () {
 };
 
 ArticlesStore.some = function (total) {
+	total = _articles.length < total ? _articles.length : total;
 	return _articles.slice(0, total);
 };
 
