@@ -34,11 +34,12 @@ var ArticlesIndexItem = React.createClass({
 		var author = this._buildName();
 		var submittedTime = this._getTime();
     return (
-      <li className="form-item">
-				<p>{this.props.article.title}</p>
-				<p>{author}</p>
-				<p>{this.props.article.words}</p>
-				<p>{submittedTime}</p>
+      <li className="article-item">
+				<img src={this.props.article.image} className="article-thumbnail"/>
+				<p className="article-title">{this.props.article.title}</p>
+				<p className="article-author">{author}</p>
+				<p className="article-words">{this.props.article.words}</p>
+				<p className="article-submitted">{submittedTime}</p>
       </li>
     );
   },

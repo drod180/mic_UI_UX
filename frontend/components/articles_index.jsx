@@ -23,7 +23,7 @@ var ArticlesIndex = React.createClass({
 	},
 
   _getStateFromStore: function (pages) {
-		if (pages * ArticlesConstants.ARTICLES_PER_PAGE > ArticlesStore.count()) {	
+		if (pages * ArticlesConstants.ARTICLES_PER_PAGE > ArticlesStore.count()) {
 			ArticlesUtils.fetchMoreArticles();
 		}
 		return ArticlesStore.some(pages *
@@ -39,8 +39,8 @@ var ArticlesIndex = React.createClass({
 			return (<ArticlesIndexItem article={article} key={i} />);
 		});
 		return (
-			<div>
-				<ul className="articles-list">{articles}</ul>
+			<div className="articles-list">
+				<ul>{articles}</ul>
 			</div>
 		);
   }

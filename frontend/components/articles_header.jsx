@@ -38,11 +38,23 @@ var ArticlesHeader = React.createClass({
 			this.state.count : this.props.pages * ArticlesConstants.ARTICLES_PER_PAGE;
 
 		return (
-			<div className="articles-header">
-				<h4>{"Unpublished Articles " + "(" + count + ")"}</h4>
-				<h4>Authors</h4>
-				<h4 onClick={this._filterWords}>Words</h4>
-				<h4 onClick={this._filterTime}>Submitted</h4>
+			<div className="articles-header group">
+				<a className="left-header">
+					{"Unpublished Articles " + "(" + count + ")"}
+				</a>
+				<section className="right-header">
+					<a className="right-header-item">Author</a>
+					<a
+						className="right-header-item"
+						onClick={this._filterWords}>
+						Words
+					</a>
+					<a
+						className="right-header-item"
+						onClick={this._filterTime}>
+						Submitted
+					</a>
+				</section>
 			</div>
 		);
 	}
