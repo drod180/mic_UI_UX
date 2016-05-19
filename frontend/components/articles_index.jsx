@@ -2,6 +2,7 @@ var React = require('react');
 var ArticlesIndexItem = require('./articles_index_item');
 var ArticlesStore = require('../stores/articles_store');
 var ArticlesUtils = require('../utils/articles_utils');
+var ArticlesConstants = require('../constants/articles_constants');
 
 var ArticlesIndex = React.createClass({
 	getInitialState : function () {
@@ -17,12 +18,20 @@ var ArticlesIndex = React.createClass({
 		this.articlesStoreToken.remove();
   },
 
-  _getStateFromStore: function () {
-		return ArticlesStore.all();
+	componentWillReceiveProps: function (newProps) {
+		this.setState({ articles: this._getStateFromStore(newProps.pages) });
+	},
+
+  _getStateFromStore: function (pages) {
+		if (pages * ArticlesConstants.ARTICLES_PER_PAGE > ArticlesStore.count()) {	
+			ArticlesUtils.fetchMoreArticles();
+		}
+		return ArticlesStore.some(pages *
+			 ArticlesConstants.ARTICLES_PER_PAGE);
   },
 
   _onChange: function () {
-		this.setState({ articles: this._getStateFromStore() });
+		this.setState({ articles: this._getStateFromStore(this.props.pages) });
   },
 
   render: function () {

@@ -9,6 +9,16 @@ var ArticlesUtils = {
 		});
 		dataReq.open("GET", "data/articles.json", true);
 		dataReq.send();
+	},
+
+	fetchMoreArticles: function () {
+		var dataReq = new XMLHttpRequest();
+		dataReq.addEventListener("load", function () {
+			var articles = JSON.parse(this.responseText);
+			ArticlesActions.receiveMoreArticles(articles);
+		});
+		dataReq.open("GET", "data/more-articles.json", true);
+		dataReq.send();
 	}
 };
 

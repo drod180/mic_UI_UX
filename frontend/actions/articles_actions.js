@@ -7,6 +7,13 @@ ArticlesActions = {
       actionType: ArticlesConstants.ARTICLES_RECEIVED,
       articles: articles
     });
+	},
+
+	receiveMoreArticles: function (articles) {
+		AppDispatcher.dispatch({
+      actionType: ArticlesConstants.MORE_ARTICLES_RECEIVED,
+      articles: articles
+    });
 	}
 };
 
