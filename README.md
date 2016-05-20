@@ -1,6 +1,7 @@
 ## Instructions for getting started
 - run the following commands in your command line
 - npm install
+- webpack
 - npm start
 
 - You should see an output similar to "Starting up http-server, serving ./
